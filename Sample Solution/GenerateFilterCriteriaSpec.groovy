@@ -42,15 +42,7 @@ class GenerateFilterCriteriaSpec extends Specification {
 
     def 'Multiple string values'() {
         given:
-        //--------------------------------------------------------------
-        // Initialize message with body, header and property
-        def body = new String('dummy')
         setHeader('CamelHttpQuery', 'CustomerID=TOMSP&ShipCountry=Germany')
-        //--------------------------------------------------------------
-
-        // Set exchange body in case automatic Type Conversion is required
-        exchange.getIn().setBody(body)
-        msg.setBody(exchange.getIn().getBody())
 
         when:
         // Execute script
@@ -62,15 +54,7 @@ class GenerateFilterCriteriaSpec extends Specification {
 
     def 'Numeric EmployeeID as first parameter'() {
         given:
-        //--------------------------------------------------------------
-        // Initialize message with body, header and property
-        def body = new String('dummy')
         setHeader('CamelHttpQuery', 'EmployeeID=6&ShipCountry=Sweden')
-        //--------------------------------------------------------------
-
-        // Set exchange body in case automatic Type Conversion is required
-        exchange.getIn().setBody(body)
-        msg.setBody(exchange.getIn().getBody())
 
         when:
         // Execute script
@@ -82,15 +66,7 @@ class GenerateFilterCriteriaSpec extends Specification {
 
     def 'Numeric EmployeeID as second parameter'() {
         given:
-        //--------------------------------------------------------------
-        // Initialize message with body, header and property
-        def body = new String('dummy')
         setHeader('CamelHttpQuery', 'ShipCountry=Sweden&EmployeeID=6')
-        //--------------------------------------------------------------
-
-        // Set exchange body in case automatic Type Conversion is required
-        exchange.getIn().setBody(body)
-        msg.setBody(exchange.getIn().getBody())
 
         when:
         // Execute script
@@ -101,15 +77,7 @@ class GenerateFilterCriteriaSpec extends Specification {
     }
     def 'Encoded space characters'() {
         given:
-        //--------------------------------------------------------------
-        // Initialize message with body, header and property
-        def body = new String('dummy')
         setHeader('CamelHttpQuery', 'EmployeeID=4&ShipCity=Rio%20de%20Janeiro')
-        //--------------------------------------------------------------
-
-        // Set exchange body in case automatic Type Conversion is required
-        exchange.getIn().setBody(body)
-        msg.setBody(exchange.getIn().getBody())
 
         when:
         // Execute script
@@ -121,15 +89,7 @@ class GenerateFilterCriteriaSpec extends Specification {
 
     def 'ShipPostalCode with alpha numeric'() {
         given:
-        //--------------------------------------------------------------
-        // Initialize message with body, header and property
-        def body = new String('dummy')
         setHeader('CamelHttpQuery', 'ShipPostalCode=WX3%206FW')
-        //--------------------------------------------------------------
-
-        // Set exchange body in case automatic Type Conversion is required
-        exchange.getIn().setBody(body)
-        msg.setBody(exchange.getIn().getBody())
 
         when:
         // Execute script
@@ -141,15 +101,7 @@ class GenerateFilterCriteriaSpec extends Specification {
 
     def 'ShipPostalCode with number'() {
         given:
-        //--------------------------------------------------------------
-        // Initialize message with body, header and property
-        def body = new String('dummy')
         setHeader('CamelHttpQuery', 'ShipPostalCode=8010')
-        //--------------------------------------------------------------
-
-        // Set exchange body in case automatic Type Conversion is required
-        exchange.getIn().setBody(body)
-        msg.setBody(exchange.getIn().getBody())
 
         when:
         // Execute script
@@ -161,15 +113,7 @@ class GenerateFilterCriteriaSpec extends Specification {
 
     def 'ShipPostalCode with number with leading zeros'() {
         given:
-        //--------------------------------------------------------------
-        // Initialize message with body, header and property
-        def body = new String('dummy')
         setHeader('CamelHttpQuery', 'ShipPostalCode=05023')
-        //--------------------------------------------------------------
-
-        // Set exchange body in case automatic Type Conversion is required
-        exchange.getIn().setBody(body)
-        msg.setBody(exchange.getIn().getBody())
 
         when:
         // Execute script
@@ -181,15 +125,7 @@ class GenerateFilterCriteriaSpec extends Specification {
 
     def 'Encoded European characters in ShipCity'() {
         given:
-        //--------------------------------------------------------------
-        // Initialize message with body, header and property
-        def body = new String('dummy')
         setHeader('CamelHttpQuery', 'ShipCity=K%C3%B6ln')
-        //--------------------------------------------------------------
-
-        // Set exchange body in case automatic Type Conversion is required
-        exchange.getIn().setBody(body)
-        msg.setBody(exchange.getIn().getBody())
 
         when:
         // Execute script
@@ -201,15 +137,7 @@ class GenerateFilterCriteriaSpec extends Specification {
 
     def 'Date OrderDate as first parameter'() {
         given:
-        //--------------------------------------------------------------
-        // Initialize message with body, header and property
-        def body = new String('dummy')
         setHeader('CamelHttpQuery', 'OrderDate=1996-11-27T00:00:00')
-        //--------------------------------------------------------------
-
-        // Set exchange body in case automatic Type Conversion is required
-        exchange.getIn().setBody(body)
-        msg.setBody(exchange.getIn().getBody())
 
         when:
         // Execute script
@@ -221,15 +149,7 @@ class GenerateFilterCriteriaSpec extends Specification {
 
     def 'Date OrderDate as second parameter'() {
         given:
-        //--------------------------------------------------------------
-        // Initialize message with body, header and property
-        def body = new String('dummy')
         setHeader('CamelHttpQuery', 'EmployeeID=6&OrderDate=1996-11-27T00:00:00')
-        //--------------------------------------------------------------
-
-        // Set exchange body in case automatic Type Conversion is required
-        exchange.getIn().setBody(body)
-        msg.setBody(exchange.getIn().getBody())
 
         when:
         // Execute script
@@ -240,15 +160,7 @@ class GenerateFilterCriteriaSpec extends Specification {
     }
     def 'Ampersand & using %26'() {
         given:
-        //--------------------------------------------------------------
-        // Initialize message with body, header and property
-        def body = new String('dummy')
         setHeader('CamelHttpQuery', 'EmployeeID=6%26$expand=Customer')
-        //--------------------------------------------------------------
-
-        // Set exchange body in case automatic Type Conversion is required
-        exchange.getIn().setBody(body)
-        msg.setBody(exchange.getIn().getBody())
 
         when:
         // Execute script
@@ -260,15 +172,7 @@ class GenerateFilterCriteriaSpec extends Specification {
 
     def 'Repeated parameter'() {
         given:
-        //--------------------------------------------------------------
-        // Initialize message with body, header and property
-        def body = new String('dummy')
         setHeader('CamelHttpQuery', 'EmployeeID=6&ShipCountry=Sweden&EmployeeID=7')
-        //--------------------------------------------------------------
-
-        // Set exchange body in case automatic Type Conversion is required
-        exchange.getIn().setBody(body)
-        msg.setBody(exchange.getIn().getBody())
 
         when:
         // Execute script
