@@ -1,6 +1,5 @@
 import com.sap.gateway.ip.core.customdev.processor.MessageImpl
 import com.sap.gateway.ip.core.customdev.util.Message
-import com.sap.it.api.msglog.MessageLog
 import com.sap.it.api.msglog.MessageLogFactory
 import org.apache.camel.CamelContext
 import org.apache.camel.Exchange
@@ -15,7 +14,6 @@ class GenerateFilterCriteriaSpec extends Specification {
     @Shared MessageLogFactory mlf
     Message msg
     Exchange exchange
-    MessageLog log
 
     def setupSpec() {
         // Setup Spock stubs and mocks
@@ -31,8 +29,6 @@ class GenerateFilterCriteriaSpec extends Specification {
     def setup() {
         exchange = new DefaultExchange(context)
         msg = new MessageImpl(exchange)
-        log = Mock(MessageLog)
-        mlf.getMessageLog(msg) >> log
     }
 
     def setHeader(name, value) {
